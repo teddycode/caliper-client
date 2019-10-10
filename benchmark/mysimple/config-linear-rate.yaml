@@ -16,7 +16,7 @@
 test:
   name: simple
   description: This is an example benchmark for caliper, to test the backend DLT's
-    performance with simple account opening & querying transactions
+    performance with simple account opening & querying transactions.Env is 8c16g & noContainer logs &  3o1p2c
   clients:
     type: local
     number: 5

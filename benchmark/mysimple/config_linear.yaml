@@ -16,7 +16,7 @@
 test:
   name: simple
   description: This is an example benchmark for caliper, to test the backend DLT's
-    performance with simple account opening & querying transactions
+    performance with simple account opening & querying transactions.Env is 8c16g & noContainer logs &  3o1p2c. linear  rate test.
   clients:
     type: local
     number: 5
@@ -38,15 +38,7 @@ test:
     - 10000
     - 10000
     - 10000
-    - 10000
-    - 10000
-    - 10000
-    - 10000
-    - 10000
     rateControl:
-    - type: fixed-rate
-      opts:
-        tps: 100
     - type: fixed-rate
       opts:
         tps: 200
@@ -92,32 +84,68 @@ test:
     - type: fixed-rate
       opts:
         tps: 1600
+    arguments:
+      money: 100
+    callback: benchmark/simple/open.js
+  - label: query
+    txNumber:
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    rateControl:
     - type: fixed-rate
       opts:
-        tps: 1700
+        tps: 400
+    - type: fixed-rate
+      opts:
+        tps: 600
+    - type: fixed-rate
+      opts:
+        tps: 800
+    - type: fixed-rate
+      opts:
+        tps: 1000
+    - type: fixed-rate
+      opts:
+        tps: 1200
+    - type: fixed-rate
+      opts:
+        tps: 1400
+    - type: fixed-rate
+      opts:
+        tps: 1600
     - type: fixed-rate
       opts:
         tps: 1800
     - type: fixed-rate
       opts:
-        tps: 1900
-    - type: fixed-rate
-      opts:
         tps: 2000
-    arguments:
-      money: 10000
-    callback: benchmark/simple/open.js
-  - label: query
-    txNumber:
-    - 1000
-    - 1000
-    rateControl:
     - type: fixed-rate
       opts:
-        tps: 100
+        tps: 2200
     - type: fixed-rate
       opts:
-        tps: 200
+        tps: 2400
+    - type: fixed-rate
+      opts:
+        tps: 2600
+    - type: fixed-rate
+      opts:
+        tps: 2800
+    - type: fixed-rate
+      opts:
+        tps: 3000
     callback: benchmark/simple/query.js
 observer:
   interval: 1
